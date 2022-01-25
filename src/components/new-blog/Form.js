@@ -13,7 +13,7 @@ const FormBlog = () => {
   const [form] = Form.useForm();
 
   const getBase64 = (file) => {
-      
+
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result);
@@ -63,7 +63,7 @@ const FormBlog = () => {
               name="title"
               rules={[
                 {
-                  required: false,
+                  required: true,
                   message: "Title require!",
                 },
               ]}
@@ -76,7 +76,7 @@ const FormBlog = () => {
               name="date"
               rules={[
                 {
-                  required: false,
+                  required: true,
                   message: "Date require",
                 },
               ]}
@@ -94,7 +94,7 @@ const FormBlog = () => {
               name="desc"
               rules={[
                 {
-                  required: false,
+                  required: true,
                   message: "Description require!",
                 },
               ]}
@@ -107,7 +107,7 @@ const FormBlog = () => {
               name="img"
               rules={[
                 {
-                  required: false,
+                  required: true,
                   message: "Image require!",
                 },
               ]}
