@@ -9,7 +9,7 @@ const Routers = () => {
       <Navbar />
       <Routes>
         <Route path="/new-blog" element={<NewBlog />} />
-        <Route path="/" element={<Blogs />} />
+        <Route exact path="/" element={<Blogs />} />
       </Routes>
     </>
   );

@@ -10,7 +10,7 @@ import "antd/dist/antd.css";
 import "./index.css";
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <Provider store={store}>
         <PersistGate persistor={persistedStore}>
           <App />
