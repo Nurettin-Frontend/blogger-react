@@ -1,0 +1,11 @@
+.form {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+
+  &__btn{
+    position: relative;
+    margin-left: auto !important;
+    padding-right: 15px !important;
+  }
+}
