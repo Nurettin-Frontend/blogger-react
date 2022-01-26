@@ -1,0 +1,32 @@
+.details {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+
+  img {
+    object-fit: cover;
+    height: 400px;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  &__text {
+    margin: 50px 0px;
+    &__cover {
+      box-shadow: rgba(240, 240, 240, 0.068) 0px 2px 8px 0px;
+      padding: 10px 20px;
+      border-radius: 5px;
+
+      span:nth-child(1){
+          color: white;
+          font-size: 18px;
+          font-weight: 500;
+      }
+      span:nth-child(2){
+          color: rgb(155, 155, 155);
+          font-size: 18px;
+          font-weight: 400;
+      }
+    }
+  }
+}
