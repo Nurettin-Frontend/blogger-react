@@ -3,6 +3,7 @@ import Blog from "./Blog";
 import { Row, Col } from "antd";
 import style from "./Blogs.module.scss";
 import { useSelector } from "react-redux";
+
 const Blogs = () => {
   const blogs = useSelector((state) => state.blogs);
   return (

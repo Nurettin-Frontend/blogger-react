@@ -4,6 +4,7 @@ import { Input, Row, Col, DatePicker, Button, Form, notification } from "antd";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+
 const FormBlog = () => {
   const pickDateHandler = () => {};
   const [fileList, setFileList] = useState([]);
@@ -12,7 +13,7 @@ const FormBlog = () => {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
-  const [loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -44,7 +45,7 @@ const FormBlog = () => {
   };
 
   const submitHandler = (values) => {
-    setLoading(true)
+    setLoading(true);
     dispatch(submit(values));
     notification.open({
       message: "Notification",
@@ -52,8 +53,8 @@ const FormBlog = () => {
       placement: "bottomRight",
     });
     setTimeout(() => {
-      navigate('/')
-      setLoading(false)
+      navigate("/");
+      setLoading(false);
     }, 1000);
   };
 

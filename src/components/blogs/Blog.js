@@ -1,6 +1,7 @@
 import style from "./Blog.module.scss";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+
 const Blog = (props) => {
   const { blog } = props;
   return (
