@@ -1,19 +1,20 @@
 import { useState, useForm } from "react";
 import style from "./Form.module.scss";
-import { Input, Row, Col, DatePicker, Button, Form, Upload } from "antd";
-import ImgCrop from "antd-img-crop";
+import { Input, Row, Col, DatePicker, Button, Form, notification } from "antd";
 import { useDispatch } from "react-redux";
 import moment from "moment";
-
+import { useNavigate } from "react-router-dom";
 const FormBlog = () => {
   const pickDateHandler = () => {};
   const [fileList, setFileList] = useState([]);
   const dispatch = useDispatch();
   const dateFormat = "YYYY/MM/DD";
   const [form] = Form.useForm();
+  const [api, contextHolder] = notification.useNotification();
+  const navigate = useNavigate();
+  const [loading, setLoading ] = useState(false)
 
   const getBase64 = (file) => {
-
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result);
@@ -38,12 +39,22 @@ const FormBlog = () => {
       };
       dispatch({ type: "ADD", newBlog });
       form.resetFields();
-      setFileList([])
+      setFileList([]);
     };
   };
 
   const submitHandler = (values) => {
+    setLoading(true)
     dispatch(submit(values));
+    notification.open({
+      message: "Notification",
+      description: "Blog Has Been Added Succesfully",
+      placement: "bottomRight",
+    });
+    setTimeout(() => {
+      navigate('/')
+      setLoading(false)
+    }, 1000);
   };
 
   return (
@@ -114,10 +125,12 @@ const FormBlog = () => {
             >
               <Input type="file" onChange={onChange} />
             </Form.Item>
-            {fileList.length > 0 && <img src={fileList} width={200} height={200} />}
+            {fileList.length > 0 && (
+              <img src={fileList} width={200} height={200} />
+            )}
           </Col>
           <Form.Item className={style.form__btn}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" disabled={loading}>
               ADD
             </Button>
           </Form.Item>
